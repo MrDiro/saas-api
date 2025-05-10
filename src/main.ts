@@ -1,0 +1,57 @@
+import { Logger, ValidationPipe, VersioningType } from '@nestjs/common';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { AppModule } from '@api/app.module';
+import { NestFactory } from '@nestjs/core';
+
+async function bootstrap() {
+  const port = process.env.NODE_PORT || 3000;
+  const host = process.env.NODE_HOST || "localhost";
+
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, {
+    abortOnError: false,
+    autoFlushLogs: true,
+    bufferLogs: true,
+    bodyParser: true
+  });
+  
+  app.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    whitelist: true,
+    forbidNonWhitelisted: true
+  }));
+
+  app.enableVersioning({
+    type: VersioningType.URI
+  });
+
+  const config = new DocumentBuilder()
+    .addBearerAuth()
+    .setTitle("API")
+    .setDescription("API REST")
+    .setVersion("1.0")
+    .build();
+
+  SwaggerModule.setup("document", app, SwaggerModule.createDocument(app, config), {
+    customSiteTitle: "document",
+    customfavIcon: "/favicon.png",
+    customCss: '.swagger-ui .topbar { display: none }',
+    swaggerOptions: {
+      persistAuthorization: true,
+      docExpansion: 'none',
+      defaultModelsExpandDepth: -1,
+      filter: true,
+      showExtensions: true,
+      showCommonExtensions: true,
+    },
+    explorer: true,
+  });
+  
+  await app.listen(port, host, () => {
+    const logger = new Logger();
+
+    logger.log(`Running on port ${port} 🚀`, "Api");
+  });
+}
+
+bootstrap();

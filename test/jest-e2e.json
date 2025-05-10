@@ -1,0 +1,19 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "rootDir": ".",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "db/db-postgres": "<rootDir>/../libs/db-postgres/src",
+    "db/db-postgres/(.*)": "<rootDir>/../libs/db-postgres/src/$1",
+    "email/ntf-email": "<rootDir>/../libs/ntf-email/src",
+    "email/ntf-email/(.*)": "<rootDir>/../libs/ntf-email/src/$1"
+  }
+}
