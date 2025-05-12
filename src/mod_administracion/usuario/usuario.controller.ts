@@ -1,4 +1,4 @@
-import { UsuarioService } from "@api/modulo/usuario/usuario.service";
+import { UsuarioService } from "@api/mod_administracion/usuario/usuario.service";
 import { Body, Controller, Get, Post } from "@nestjs/common";
 import { CreateUsuarioDto } from "./usuario.validator";
 

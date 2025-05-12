@@ -1,23 +1,3 @@
--- tablas modulo
-create table if not exists mod_sistema.modulo (
-   id serial not null primary key,
-   sigla varchar unique,
-   nombre varchar not null,
-   esquema varchar not null,
-   es_base boolean default false,
-	fecha_creacion timestamptz default now(),
-	eliminado boolean default false
-);
-
--- tablas acceso
-create table if not exists mod_sistema.acceso_tipo (
-   id serial not null primary key,
-   sigla varchar unique,
-   nombre varchar not null,
-	fecha_creacion timestamptz default now(),
-	eliminado boolean default false
-);
-
 create table if not exists mod_sistema.acceso (
    id serial not null primary key,
    sigla varchar unique,
@@ -27,7 +7,7 @@ create table if not exists mod_sistema.acceso (
    icono_nombre varchar,
    orden_visual int,
    es_favoritable boolean default false,
-   acceso_tipo_id int not null,
+   tipo_id int not null,
 	fecha_creacion timestamptz default now(),
 	eliminado boolean default false
 );
