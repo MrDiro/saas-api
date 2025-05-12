@@ -64,7 +64,7 @@ export class UsuarioEntity {
     tiene_2fa: boolean;
 
     @Column({ type: "timestamptz", nullable: true })
-    fecha_adicion: Date;
+    fecha_edicion: Date;
 
     @Column({ type: "timestamptz", nullable: true })
     fecha_creacion: Date;

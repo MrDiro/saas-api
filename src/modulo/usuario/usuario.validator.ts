@@ -81,7 +81,7 @@ export class CreateUsuarioDto {
 
     @IsOptional()
     @IsDate()
-    fecha_adicion: Date;
+    fecha_edicion: Date;
 
     @IsOptional()
     @IsDate()
