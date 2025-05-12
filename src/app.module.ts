@@ -1,10 +1,8 @@
-import { UsuarioModule } from '@api/modulo/usuario/usuario.module';
+import { ModSistemaModule } from './mod_sistema/mod_sistema.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RouterModule } from '@nestjs/core';
 import { Module } from '@nestjs/common';
-
 
 @Module({
     imports: [
@@ -20,16 +18,13 @@ import { Module } from '@nestjs/common';
                     password: configService.get<string>("DB_PASSWORD"),
                     database: configService.get<string>("DB_NAME"),
                     autoLoadEntities: true,
-                    synchronize: false
+                    synchronize: true
                 }
             },
             dataSourceFactory: async (options: DataSourceOptions) =>
                 await new DataSource(options).initialize()
         }),
-        RouterModule.register([
-            { path: "usuario", module: UsuarioModule }
-        ]),
-        UsuarioModule,
+        ModSistemaModule,
     ]
 })
 export class AppModule { }

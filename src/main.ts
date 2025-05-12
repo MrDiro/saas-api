@@ -5,8 +5,9 @@ import { AppModule } from '@api/app.module';
 import { NestFactory } from '@nestjs/core';
 
 async function bootstrap() {
-    const port = process.env.NODE_PORT || 3000;
-    const host = process.env.NODE_HOST || "localhost";
+    const logger = new Logger();
+    const port = process.env.NODE_PORT!;
+    const host = process.env.NODE_HOST!;
 
     const app = await NestFactory.create<NestExpressApplication>(AppModule, {
         abortOnError: false,
@@ -60,8 +61,6 @@ async function bootstrap() {
     });
 
     await app.listen(port, host, () => {
-        const logger = new Logger();
-
         logger.log(`Running on port ${port} 🚀`, "Api");
     });
 }
