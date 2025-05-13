@@ -16,9 +16,15 @@ async function bootstrap() {
         bodyParser: true,
         rawBody: true,
         cors: {
-            origin: ["http://localhost"],
-            methods: ["GET", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-            allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
+            origin: [
+                "localhost"
+            ],
+            methods: [
+                "GET", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS"
+            ],
+            allowedHeaders: [
+                "Content-Type", "Authorization", "X-Requested-With"
+            ],
             credentials: true
         }
     });

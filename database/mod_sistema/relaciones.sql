@@ -1,7 +1,3 @@
-alter table mod_sistema.acceso
-add constraint modulo_id_fk foreign key (modulo_id) references mod_sistema.modulo(id),
-add constraint acceso_tipo_id_fk foreign key (acceso_tipo_id) references mod_sistema.acceso_tipo(id);
-
 alter table mod_sistema.rel_acceso
 add constraint acceso_id_fk foreign key (acceso_id) references mod_sistema.acceso(id),
 add constraint acceso_id_dep_fk foreign key (acceso_id_dep) references mod_sistema.acceso(id);

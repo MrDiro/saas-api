@@ -1,17 +1,3 @@
-create table if not exists mod_sistema.acceso (
-   id serial not null primary key,
-   sigla varchar unique,
-   modulo_id int not null,
-   nombre varchar not null,
-   ruta_url varchar,
-   icono_nombre varchar,
-   orden_visual int,
-   es_favoritable boolean default false,
-   tipo_id int not null,
-	fecha_creacion timestamptz default now(),
-	eliminado boolean default false
-);
-
 create table if not exists mod_sistema.rel_acceso (
    id serial not null primary key,
    acceso_id int not null,
