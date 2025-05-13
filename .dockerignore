@@ -1,0 +1,14 @@
+# Ignorar node_modules para no copiar cosas innecesarias
+node_modules
+npm-debug.log
+database
+test
+
+# Ignorar Git
+.git
+.gitignore
+
+# Ignorar archivos de sistema y temporales
+.DS_Store
+*.swp
+.prettierrc
