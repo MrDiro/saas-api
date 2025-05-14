@@ -7,7 +7,6 @@ import { NestFactory } from '@nestjs/core';
 async function bootstrap() {
     const logger = new Logger();
     const port = process.env.NODE_PORT!;
-    const host = process.env.NODE_HOST!;
 
     const app = await NestFactory.create<NestExpressApplication>(AppModule, {
         abortOnError: false,
@@ -16,9 +15,7 @@ async function bootstrap() {
         bodyParser: true,
         rawBody: true,
         cors: {
-            origin: [
-                "localhost"
-            ],
+            origin: "*",
             methods: [
                 "GET", "POST", "PATCH", "DELETE", "HEAD", "OPTIONS"
             ],
@@ -66,7 +63,7 @@ async function bootstrap() {
         explorer: true,
     });
 
-    await app.listen(port, host, () => {
+    await app.listen(port, "127.0.0.1", () => {
         logger.log(`Running on port ${port} 🚀`, "Api");
     });
 }
