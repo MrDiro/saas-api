@@ -63,7 +63,7 @@ async function bootstrap() {
         explorer: true,
     });
 
-    await app.listen(port, "127.0.0.1", () => {
+    await app.listen(port, () => {
         logger.log(`Running on port ${port} 🚀`, "Api");
     });
 }
