@@ -1,4 +1,4 @@
-import { AccesoRelacionEntity } from "@db/mod_sistema/acceso_relacion.entity";
+import { AccesoRlAccesoEntity } from "@db/mod_sistema/acceso_rl_acceso.entity";
 import { AccesoTipoEntity } from "@db/mod_sistema/acceso_tipo.entity";
 import { AccesoEntity } from "@db/mod_sistema/acceso.entity";
 import { AccesoController } from "./acceso.controller";
@@ -11,7 +11,7 @@ import { Module } from "@nestjs/common";
         TypeOrmModule.forFeature([
             AccesoTipoEntity,
             AccesoEntity,
-            AccesoRelacionEntity,
+            AccesoRlAccesoEntity,
         ])
     ],
     controllers: [

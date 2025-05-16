@@ -26,7 +26,7 @@ export class UsuarioService {
             .getMany();
     }
 
-    public guardar(data: CreateUsuarioDto) {
+    public async guardar(data: CreateUsuarioDto) {
         const hash = bcrypt.hashSync(data.clave, 10);
         data.clave = hash;
 

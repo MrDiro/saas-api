@@ -1,3 +1,4 @@
+import { ModAdministracionModule } from './mod_administracion/mod_administracion.module';
 import { ModSistemaModule } from './mod_sistema/mod_sistema.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { DataSource, DataSourceOptions } from 'typeorm';
@@ -17,14 +18,16 @@ import { Module } from '@nestjs/common';
                     username: configService.get<string>("DB_USERNAME"),
                     password: configService.get<string>("DB_PASSWORD"),
                     database: configService.get<string>("DB_NAME"),
+                    logging: configService.get<string>("NODE_ENV") == "development",
+                    synchronize: configService.get<string>("NODE_ENV") == "development",
                     autoLoadEntities: true,
-                    synchronize: configService.get<string>("NODE_ENV") == "development"
                 }
             },
             dataSourceFactory: async (options: DataSourceOptions) =>
                 await new DataSource(options).initialize()
         }),
         ModSistemaModule,
+        ModAdministracionModule
     ]
 })
 export class AppModule { }
