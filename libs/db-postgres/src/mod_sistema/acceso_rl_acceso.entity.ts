@@ -1,8 +1,8 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { AccesoEntity } from "./acceso.entity";
 
-@Entity({ schema: "mod_sistema", name: "acceso_relacion" })
-export class AccesoRelacionEntity {
+@Entity({ schema: "mod_sistema", name: "acceso_rl_acceso" })
+export class AccesoRlAccesoEntity {
     @PrimaryGeneratedColumn()
     id: number;
 

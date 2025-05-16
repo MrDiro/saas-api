@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { UbicacionEntity } from "./ubicacion.entity";
 
-@Entity({ schema: "mod_sistema", name: "ubicacion_relacion" })
+@Entity({ schema: "mod_sistema", name: "ubicacion_rl_ubicacion" })
 export class UbicacionRelacionEntity {
     @PrimaryGeneratedColumn()
     id: number;
