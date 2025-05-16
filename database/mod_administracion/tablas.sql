@@ -1,23 +1,4 @@
 -- tablas cuenta
-create table if not exists mod_administracion.cuenta_estado (
-	id serial not null primary key,
-	sigla varchar unique,
-	nombre varchar not null,
-	fecha_creacion timestamptz default now(),
-	eliminado boolean default false
-);
-
-create table if not exists mod_administracion.cuenta_plan (
-	id serial not null primary key,
-	sigla varchar unique,
-	nombre varchar not null,
-	precio_mensual numeric(10,2) not null default 0,
-	limite_usuarios int,
-	permite_api boolean default false,
-	permite_soporte boolean default false,
-	fecha_creacion timestamptz default now(),
-	eliminado boolean default false
-);
 
 create table if not exists mod_administracion.cuenta (
 	id serial not null primary key,

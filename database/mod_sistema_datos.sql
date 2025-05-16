@@ -67,7 +67,7 @@ insert into mod_sistema.ubicacion_tipo ("nombre") values
 ('Bloque'),
 ('Apartamento');
 
-INSERT INTO mod_sistema.ubicacion (nombre, ubicacion_tipo_id) VALUES 
+INSERT INTO mod_sistema.ubicacion (nombre, tipo_id) VALUES 
 ('Colombia', 1),
 ('Antioquia', 2),
 ('Bogotá D.C.', 2),

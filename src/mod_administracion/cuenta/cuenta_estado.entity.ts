@@ -1,15 +1,15 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ schema: "mod_sistema", name: "rel_acceso" })
-export class RelAccesoEntity {
+@Entity({ schema: "mod_administracion", name: "cuenta_estado" })
+export class CuentaEstadoEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({ type: "int4", nullable: false })
-    acceso_id: number;
+    @Column({ type: "varchar", nullable: true, unique: true })
+    sigla: string;
 
-    @Column({ type: "int4", nullable: false })
-    acceso_id_dep: number;
+    @Column({ type: "varchar", nullable: false })
+    nombre: string;
 
     @Column({ type: "timestamptz", nullable: true, default: () => "CURRENT_TIMESTAMP" })
     fecha_creacion: string;
